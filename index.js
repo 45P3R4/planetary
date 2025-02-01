@@ -13,18 +13,20 @@ let speed = 1;
 const speedLabel = document.getElementById("speed");
 speedLabel.textContent = speed.toFixed(1);
 
-const speedUp = document.getElementById("speed-up");
-const speedDown = document.getElementById("speed-down");
+const speedUp = document.getElementById("speed-up0");
+const speedUp1 = document.getElementById("speed-up1");
+const speedDown = document.getElementById("speed-down0");
+const speedDown1 = document.getElementById("speed-down1");
 
-speedUp.addEventListener("mousedown", () => {
-    speed += 0.1;
-    speedLabel.textContent = speed.toFixed(1);;
-})
+speedUp.addEventListener("mousedown", () => changeSpeed(0.1));
+speedUp1.addEventListener("mousedown", () => changeSpeed(1));
+speedDown.addEventListener("mousedown", () => changeSpeed(-0.1));
+speedDown1.addEventListener("mousedown", () => changeSpeed(-1));
 
-speedDown.addEventListener("mousedown", () => {
-    speed -= 0.1;
+function changeSpeed(speedDelta) {
+    speed += speedDelta;
     speedLabel.textContent = speed.toFixed(1);;
-})
+}
 
 class Body {
     radius = 50;

@@ -5,6 +5,10 @@ body {
     font-family: sans-serif;
 }
 
+div {
+    color: #FFFFFF;
+}
+
 canvas {
     width: 100vw;
     height: 100vh;
