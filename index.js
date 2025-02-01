@@ -47,10 +47,10 @@ class Body {
     }
 
     animate(center, distance) {
-        this.position.x = center.x + Math.sin((this.epsilon*speed)/distance)*distance;
-        this.position.y = center.y + Math.cos((this.epsilon*speed)/distance)*distance;
+        this.position.x = center.x + Math.sin(this.epsilon/distance)*distance;
+        this.position.y = center.y + Math.cos(this.epsilon/distance)*distance;
         this.draw();
-        this.epsilon++;
+        this.epsilon += speed;
     }
 }
 
