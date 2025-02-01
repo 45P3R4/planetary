@@ -2,9 +2,24 @@ body {
     margin: 0;
     padding: 0;
     overflow: hidden;
+    font-family: sans-serif;
 }
 
 canvas {
-    /* border: 1px solid black; */
+    width: 100vw;
+    height: 100vh;
     background-color: black;
+}
+
+button {
+    background-color: black;
+    color: #FFFFFF;
+    border: 1px solid white;
+}
+
+.input-container {
+    position: absolute;
+    display: flex;
+    gap: 10px;
+    color: aliceblue;
 }
