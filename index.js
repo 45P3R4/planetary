@@ -19,6 +19,8 @@ function resize() {
 }
 
 let speed = 1;
+const MIN_SPEED = 0;
+const MAX_SPEED = 10;
 
 const speedLabel = document.getElementById("speed");
 speedLabel.textContent = speed.toFixed(1);
@@ -35,9 +37,10 @@ speedDown1.addEventListener("mousedown", () => changeSpeed(-1));
 
 function changeSpeed(speedDelta) {
     speed += speedDelta;
-    speedLabel.textContent = speed.toFixed(1);;
+    speed = speed < MAX_SPEED ? speed : MAX_SPEED;
+    speed = speed > MIN_SPEED ? speed : MIN_SPEED;
+    speedLabel.textContent = speed.toFixed(1);
 }
-
 
 class Body {
     radius = 50;
