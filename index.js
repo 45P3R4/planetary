@@ -2,11 +2,21 @@ const canvas = document.getElementById("main-canvas");
 canvas.width = innerWidth;
 canvas.height = innerHeight;
 
+window.addEventListener("resize", resize);
+
 const ctx = canvas.getContext("2d");
 ctx.fillStyle = "#FFFFFF"
 ctx.strokeStyle = "#FFFFFF"
 
-const centerPos = {x: innerWidth/2, y: innerHeight/2};
+let centerPos = {x: innerWidth/2, y: innerHeight/2};
+
+function resize() {
+    canvas.width = innerWidth;
+    canvas.height = innerHeight;
+    ctx.fillStyle = "#FFFFFF";
+    ctx.strokeStyle = "#FFFFFF";
+    centerPos = {x: innerWidth/2, y: innerHeight/2};
+}
 
 let speed = 1;
 
@@ -27,6 +37,7 @@ function changeSpeed(speedDelta) {
     speed += speedDelta;
     speedLabel.textContent = speed.toFixed(1);;
 }
+
 
 class Body {
     radius = 50;
@@ -85,7 +96,7 @@ let pluto = new Body("Pluto", 1, centerPos);
 function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    sun.draw();
+    sun.animate(centerPos, 0.1);
 
     mercury.animate(centerPos, 120);
 
